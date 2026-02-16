@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bee Designer · crack NID · NIFT · UCEED</title>
+  <!-- Font Awesome 6 (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: #faf9f6;
+      color: #1e1e2a;
+      line-height: 1.5;
+    }
+
+    /* container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* header */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      flex-wrap: wrap;
+      gap: 20px;
+      border-bottom: 1px solid #eae8e4;
+    }
+    .logo {
+      font-size: 1.9rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    .logo span {
+      color: #c2491e; /* signature warm orange */
+      background: #ffeae1;
+      padding: 4px 12px;
+      border-radius: 40px;
+      font-size: 1rem;
+      margin-left: 12px;
+      font-weight: 500;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #1e1e2a;
+    }
+    .nav-links a:hover {
+      color: #c2491e;
+    }
+    .btn-outline {
+      border: 1.5px solid #1e1e2a;
+      background: transparent;
+      padding: 10px 24px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-outline:hover {
+      background: #1e1e2a;
+      color: white;
+    }
+
+    /* buttons */
+    .btn-primary {
+      background: #c2491e;
+      color: white;
+      border: none;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-primary:hover {
+      background: #9f3b16;
+      transform: scale(1.02);
+    }
+    .btn-secondary {
+      background: transparent;
+      border: 1.5px solid #c2491e;
+      color: #c2491e;
+      padding: 14px 32px;
+      border-radius: 40px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .btn-secondary:hover {
+      background: #fff1ea;
+    }
+
+    /* hero */
+    .hero {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      padding: 60px 0 40px;
+      flex-wrap: wrap;
+    }
+    .hero-content {
+      flex: 1 1 400px;
+    }
+    .hero-badge {
+      background: #faece6;
+      color: #c2491e;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 40px;
+      display: inline-block;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -1px;
+      margin-bottom: 24px;
+    }
+    .hero-content h1 i {
+      color: #c2491e;
+      font-style: normal;
+    }
+    .hero-desc {
+      font-size: 1.2rem;
+      color: #4a4a5a;
+      max-width: 550px;
+      margin-bottom: 32px;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .quick-test {
+      margin-top: 30px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      background: #ffffffd9;
+      padding: 8px 16px 8px 24px;
+      border-radius: 60px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+      width: fit-content;
+      border: 1px solid #e0dbd2;
+    }
+    .quick-test i {
+      color: #c2491e;
+      font-size: 1.2rem;
+    }
+    .quick-test span {
+      font-weight: 500;
+    }
+    .quick-test .mini-btn {
+      background: #1e1e2a;
+      color: white;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-left: 10px;
+      cursor: default;
+    }
+    .hero-visual {
+      flex: 1 1 300px;
+      background: linear-gradient(145deg, #f2e9e2, #fcf7f2);
+      border-radius: 60px 60px 60px 20px;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: 0 25px 40px -20px rgba(0,0,0,0.2);
+    }
+    .stat-row {
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+    }
+    .stat-item h3 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #c2491e;
+    }
+    .stat-item p {
+      font-weight: 500;
+    }
+    .mentor-mini {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: white;
+      padding: 12px 18px;
+      border-radius: 50px;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.04);
+    }
+    .mentor-mini i {
+      font-size: 2rem;
+      color: #1e2a3a;
+    }
+
+    /* section head */
+    .section-head {
+      text-align: center;
+      margin: 70px 0 40px;
+    }
+    .section-head h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+    .section-head p {
+      color: #5a5a6e;
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 12px auto 0;
+    }
+
+    /* mentor cards */
+    .mentor-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 30px;
+      margin-top: 20px;
+    }
+    .mentor-card {
+      background: white;
+      border-radius: 40px;
+      padding: 32px 20px 24px;
+      text-align: center;
+      box-shadow: 0 10px 25px -10px rgba(0,0,0,0.06);
+      transition: 0.15s;
+      border: 1px solid #f0ebe6;
+    }
+    .mentor-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 30px -10px rgba(194,73,30,0.1);
+    }
+    .mentor-card i {
+      font-size: 4rem;
+      color: #2b2b3b;
+      background: #f3efea;
+      padding: 20px;
+      border-radius: 60px;
+    }
+    .mentor-card h4 {
+      font-size: 1.5rem;
+      margin: 20px 0 6px;
+    }
+    .mentor-card p {
+      color: #c2491e;
+      font-weight: 500;
+      background: #fff0e9;
+      display: inline-block;
+      padding: 5px 15px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+    }
+
+    /* program cards */
+    .program-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .program-card {
+      background: white;
+      border-radius: 40px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.02);
+      border: 1px solid #f0e6de;
+    }
+    .program-icon {
+      background: #fdede6;
+      width: 60px;
+      height: 60px;
+      border-radius: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      color: #c2491e;
+      margin-bottom: 24px;
+    }
+    .program-card h3 {
+      font-size: 1.7rem;
+      margin-bottom: 10px;
+    }
+    .program-card .price {
+      font-weight: 700;
+      font-size: 1.5rem;
+      margin: 20px 0 12px;
+    }
+    .program-card .price small {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #6b6b7e;
+    }
+    .feature-list {
+      list-style: none;
+      margin: 20px 0;
+    }
+    .feature-list li {
+      margin: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .feature-list i {
+      color: #c2491e;
+    }
+
+    /* Wall of fame (student grid) */
+    .Wall-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .Wall-item {
+      background: white;
+      padding: 20px 10px;
+      border-radius: 30px;
+      text-align: center;
+      border: 1px solid #e3dbd2;
+    }
+    .Wall-item i {
+      font-size: 2.8rem;
+      color: #7f6b5c;
+      background: #f0e7e0;
+      padding: 15px;
+      border-radius: 50%;
+    }
+    .Wall-item .name {
+      font-weight: 700;
+      font-size: 1.3rem;
+      margin: 12px 0 4px;
+    }
+    .Wall-item .rank {
+      color: #c2491e;
+      font-weight: 600;
+      background: #fde7de;
+      display: inline-block;
+      padding: 3px 16px;
+      border-radius: 40px;
+      font-size: 0.9rem;
+      margin-top: 8px;
+    }
+
+    /* testimonials */
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 50px 0;
+    }
+    .testimonial-card {
+      background: white;
+      border-radius: 40px;
+      padding: 30px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.02);
+      border: 1px solid #efeadb;
+    }
+    .testimonial-card i.fa-quote-left {
+      color: #c2491e;
+      opacity: 0.3;
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+    .testimonial-card p {
+      font-size: 1.05rem;
+      margin: 15px 0 20px;
+    }
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .testimonial-author i {
+      font-size: 2.5rem;
+      color: #3e3e4f;
+    }
+    .author-info h5 {
+      font-weight: 700;
+    }
+    .author-info span {
+      color: #c2491e;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    /* cta banner */
+    .cta-banner {
+      background: #1e1e2a;
+      color: white;
+      border-radius: 80px;
+      padding: 60px 40px;
+      margin: 70px 0 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .cta-banner h2 {
+      font-size: 2.3rem;
+      font-weight: 600;
+      max-width: 500px;
+    }
+    .cta-banner .btn-primary {
+      background: #ff8a5c;
+      font-size: 1.2rem;
+      padding: 18px 48px;
+    }
+
+    /* footer */
+    footer {
+      border-top: 1px solid #e2dbd1;
+      padding: 40px 0;
+      margin-top: 40px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      color: #4b4b5c;
+    }
+
+    /* responsiveness */
+    @media (max-width: 700px) {
+      .navbar {
+        flex-direction: column;
+        align-items: start;
+      }
+      .hero-content h1 {
+        font-size: 2.5rem;
+      }
+      .cta-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- header -->
+    <nav class="navbar">
+      <div class="logo">Bee Designer <span>estd. 2025</span></div>
+      <div class="nav-links">
+        <a href="#">Programs</a>
+        <a href="#">Results</a>
+        <a href="#">Community</a>
+        <a href="#">Mentor</a>
+      </div>
+      <button class="btn-outline"><i class="far fa-user" style="margin-right: 8px;"></i> sign in</button>
+    </nav>
+
+    <!-- hero section -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="hero-badge"><i class="fas fa-users" style="margin-right: 8px;"></i> 10,000+ Community</div>
+        <h1>Not coaching,<br>a <i>creative community</i> that cracks design exams</h1>
+        <p class="hero-desc">NID · NIFT · UCEED · CEED · NATA - guided by IIT / NID alumni. Personalized feedback & peer learning.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-primary"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i> explore Programs</a>
+          <a href="#" class="btn-secondary"><i class="fas fa-pencil-alt" style="margin-right: 8px;"></i> free aptitude test</a>
+        </div>
+        <!-- quick test widget (like silica 5 min check) -->
+        <div class="quick-test">
+          <i class="fas fa-bolt"></i>
+          <span>5-min NIFT / NID readiness check</span>
+          <span class="mini-btn">start <i class="fas fa-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="stat-row">
+          <div class="stat-item"><h3>500+</h3><p>rankers</p></div>
+          <div class="stat-item"><h3>98%</h3><p>satisfication</p></div>
+          <div class="stat-item"><h3>15k</h3><p>aspirants</p></div>
+        </div>
+        <div class="mentor-mini">
+          <i class="fas fa-user-tie"></i>
+          <div><strong>Moses Charlie · IIT Bombay</strong> <span style="color:#c2491e; display: block;">Design mentor, India</span></div>
+        </div>
+        <div class="mentor-mini">
+          <i class="fas fa-user-circle"></i>
+          <div><strong>Saba Kausar · NIFT Gandhinagar</strong> <span style="color:#c2491e; display: block;">faculty, interaction design</span></div>
+        </div>
+        <p style="margin-top: 12px; font-weight: 500;"><i class="fas fa-comment-dots" style="color:#c2491e;"></i> “we give unlimited feedback, just like AI”</p>
+      </div>
+    </section>
+
+    <!-- mentor section (like DDM / DTS mentor credentials) -->
+    <div class="section-head">
+      <h2>Learn from <span style="color:#c2491e;">IIT · NID · NIFT</span> mentors</h2>
+      <p>faculty who’ve been in your shoes - and designed the exams</p>
+    </div>
+    <div class="mentor-grid">
+      <div class="mentor-card"><i class="fas fa-user-astronaut"></i><h4>Arunav D.</h4><p>NIFT · IITB</p><span style="font-size:0.9rem;">strategic design</span></div>
+      <div class="mentor-card"><i class="fas fa-user-nurse"></i><h4>Saba Kausar</h4><p>NID A'bad</p><span style="font-size:0.9rem;">interaction design</span></div>
+      <div class="mentor-card"><i class="fas fa-user-graduate"></i><h4>Karthik R.</h4><p>IIT Delhi</p><span style="font-size:0.9rem;">product design</span></div>
+      <div class="mentor-card"><i class="fas fa-user-tie"></i><h4>Anjali P.</h4><p>NIFT Delhi</p><span style="font-size:0.9rem;">fashion comm.</span></div>
+    </div>
+
+    <!-- Programs / courses (mix of silica stage + DDM product focus) -->
+    <div class="section-head">
+      <h2>Pick your <span style="color:#c2491e;">Program</span></h2>
+      <p>crash courses, mock bundles, or 1‑year mentorship - whatever stage you’re in</p>
+    </div>
+    <div class="program-grid">
+      <div class="program-card">
+        <div class="program-icon"><i class="fas fa-rocket"></i></div>
+        <h3>UCEED/CEED</h3>
+        <p>6-week crash course · 40+ mocks · IIT Bombay curated</p>
+        <div class="price">₹3,499 <small>incl. feedback</small></div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> 15 full‑length mocks</li>
+          <li><i class="fas fa-check-circle"></i> live doubt sessions</li>
+          <li><i class="fas fa-check-circle"></i> detailed solutions</li>
+        </ul>
+        <a href="#" class="btn-secondary" style="width:100%; text-align:center;">enrol now</a>
+      </div>
+      <div class="program-card">
+        <div class="program-icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>NID/NIFT studio</h3>
+        <p>1‑year mentorship · portfolio & DAT · unlimited reviews</p>
+        <div class="price">₹24,999 <small>or 2 instalments</small></div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> 150+ assignments</li>
+          <li><i class="fas fa-check-circle"></i> personal mentor</li>
+          <li><i class="fas fa-check-circle"></i> 5 portfolio overhauls</li>
+        </ul>
+        <a href="#" class="btn-secondary" style="width:100%; text-align:center;">learn more</a>
+      </div>
+      <div class="program-card">
+        <div class="program-icon"><i class="fas fa-layer-group"></i></div>
+        <h3>mock test bundle</h3>
+        <p>UCEED + CEED + NID (B.Des) · 25 tests · exam simulator</p>
+        <div class="price">₹2,999 <small>only</small></div>
+        <ul class="feature-list">
+          <li><i class="fas fa-check-circle"></i> leaderboard & rank</li>
+          <li><i class="fas fa-check-circle"></i> sketching feedback</li>
+          <li><i class="fas fa-check-circle"></i> previous year papers</li>
+        </ul>
+        <a href="#" class="btn-secondary" style="width:100%; text-align:center;">buy bundle</a>
+      </div>
+    </div>
+
+    <!-- Wall of fame (like designthinkerschool) -->
+    <div class="section-head">
+      <h2>🏆 Wall of fame</h2>
+      <p>our Community made it to IITs, NID, NIFT - you're next</p>
+    </div>
+    <div class="Wall-grid">
+      <div class="Wall-item"><i class="fas fa-user-circle"></i><div class="name">Shrestha J.</div><div class="rank">NID AIR 1</div><span>M.Des</span></div>
+      <div class="Wall-item"><i class="fas fa-user-circle"></i><div class="name">Gautam M.</div><div class="rank">UCEED AIR 1</div><span>IIT Bombay</span></div>
+      <div class="Wall-item"><i class="fas fa-user-circle"></i><div class="name">Aanandi P.</div><div class="rank">NIFT AIR 5</div><span>fashion design</span></div>
+      <div class="Wall-item"><i class="fas fa-user-circle"></i><div class="name">Anupama P.</div><div class="rank">NID AIR 2</div><span>new media</span></div>
+      <div class="Wall-item"><i class="fas fa-user-circle"></i><div class="name">Suhani B.</div><div class="rank">IIT Delhi AIR 96</div><span>B.Des</span></div>
+      <div class="Wall-item"><i class="fas fa-user-circle"></i><div class="name">Bhakti D.</div><div class="rank">NID AIR 3</div><span>animation</span></div>
+    </div>
+
+    <!-- testimonials (AI style – long & emotional) -->
+    <div class="section-head">
+      <h2>💬 from the Community</h2>
+    </div>
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left"></i>
+        <p>Sigma is not coaching, it's a family. I got unlimited feedback, even on weekends. They literally revived my portfolio two weeks before NID interview. Forever grateful.</p>
+        <div class="testimonial-author">
+          <i class="fas fa-user-circle"></i>
+          <div class="author-info"><h5>Abhinav Behal</h5><span>IIT Hyderabad M.Des</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left"></i>
+        <p>The peer Community is insane – we sketch together at 2am, review each other's work. Arunav's words 'you are a victor' still ring in my ears. Best decision ever.</p>
+        <div class="testimonial-author">
+          <i class="fas fa-user-circle"></i>
+          <div class="author-info"><h5>Akshat V.</h5><span>IIT Bombay M.Des</span></div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <i class="fas fa-quote-left"></i>
+        <p>I was a working professional, not sure about design. The flexible mentorship and structured mocks (with actual feedback, not just scores) gave me clarity. Now at NID.</p>
+        <div class="testimonial-author">
+          <i class="fas fa-user-circle"></i>
+          <div class="author-info"><h5>Mansi S.</h5><span>IIT Hyderabad · CEED 135</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA banner (like "let's design your success") -->
+    <div class="cta-banner">
+      <h2>Still unsure? take the 2‑min career map →</h2>
+      <a href="#" class="btn-primary"><i class="fas fa-compass"></i> find your exam</a>
+    </div>
+
+    <!-- footer -->
+    <footer>
+      <div>© 2026 Bee Designer - Community of aspiring designers</div>
+      <div>
+        <i class="fab fa-instagram" style="margin:0 10px;"></i>
+        <i class="fab fa-youtube" style="margin:0 10px;"></i>
+        <i class="fab fa-telegram" style="margin:0 10px;"></i>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
