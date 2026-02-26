@@ -194,32 +194,6 @@
       gap: 20px;
       box-shadow: 0 25px 40px -20px rgba(0,0,0,0.2);
     }
-    .stat-row {
-      display: flex;
-      justify-content: space-around;
-      text-align: center;
-    }
-    .stat-item h3 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #c2491e;
-    }
-    .stat-item p {
-      font-weight: 500;
-    }
-    .mentor-mini {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      background: white;
-      padding: 12px 18px;
-      border-radius: 50px;
-      box-shadow: 0 5px 12px rgba(0,0,0,0.04);
-    }
-    .mentor-mini i {
-      font-size: 2rem;
-      color: #1e2a3a;
-    }
 
     /* section head */
     .section-head {
@@ -470,14 +444,14 @@
       <div class="logo">Bee Designer <span>estd. 2025</span></div>
       <div class="nav-links">
         <a href="#">Programs</a>
-        <a href="#">Results</a>
         <a href="#">Community</a>
         <a href="#">Mentor</a>
+        <a href="#"></a>
       </div>
       <button class="btn-outline"><i class="far fa-user" style="margin-right: 8px;"></i> sign in</button>
     </nav>
 
-    <!-- hero section -->
+    <!-- hero section (left side unchanged, right side with form and new heading) -->
     <section class="hero">
       <div class="hero-content">
         <div class="hero-badge"><i class="fas fa-users" style="margin-right: 8px;"></i> 10,000+ Community</div>
@@ -487,32 +461,46 @@
           <a href="#" class="btn-primary"><i class="fas fa-graduation-cap" style="margin-right: 8px;"></i> explore Programs</a>
           <a href="#" class="btn-secondary"><i class="fas fa-pencil-alt" style="margin-right: 8px;"></i> free aptitude test</a>
         </div>
-        <!-- quick test widget (like silica 5 min check) -->
+        <!-- quick test widget -->
         <div class="quick-test">
           <i class="fas fa-bolt"></i>
           <span>5-min NIFT / NID readiness check</span>
           <span class="mini-btn">start <i class="fas fa-arrow-right"></i></span>
         </div>
       </div>
+
+      <!-- ========== HERO VISUAL with new heading & form only ========== -->
       <div class="hero-visual">
-        <div class="stat-row">
-          <div class="stat-item"><h3>500+</h3><p>rankers</p></div>
-          <div class="stat-item"><h3>98%</h3><p>satisfication</p></div>
-          <div class="stat-item"><h3>15k</h3><p>aspirants</p></div>
-        </div>
-        <div class="mentor-mini">
-          <i class="fas fa-user-tie"></i>
-          <div><strong>Moses Charlie · IIT Bombay</strong> <span style="color:#c2491e; display: block;">Design mentor, India</span></div>
-        </div>
-        <div class="mentor-mini">
-          <i class="fas fa-user-circle"></i>
-          <div><strong>Saba Kausar · NIFT Gandhinagar</strong> <span style="color:#c2491e; display: block;">faculty, interaction design</span></div>
-        </div>
-        <p style="margin-top: 12px; font-weight: 500;"><i class="fas fa-comment-dots" style="color:#c2491e;"></i> “we give unlimited feedback, just like AI”</p>
+        <!-- New heading "Request for call" added -->
+        <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 5px; line-height: 1.2;">Request for call</h3>
+        
+        <!-- Formspree callback form with design exam options -->
+        <form action="https://formspree.io/f/mreayngq" method="POST" style="display: flex; flex-direction: column; gap: 12px;">
+          <input type="text" name="name" placeholder="Your Name *" required 
+                 style="padding: 12px 18px; border-radius: 40px; border: 1px solid #d4cbc2; background: white; font-size: 0.95rem; width: 100%;">
+          <input type="tel" name="phone" placeholder="Phone Number *" required 
+                 style="padding: 12px 18px; border-radius: 40px; border: 1px solid #d4cbc2; background: white; font-size: 0.95rem; width: 100%;">
+          <input type="email" name="email" placeholder="Email ID *" required 
+                 style="padding: 12px 18px; border-radius: 40px; border: 1px solid #d4cbc2; background: white; font-size: 0.95rem; width: 100%;">
+          <select name="course" required 
+                  style="padding: 12px 18px; border-radius: 40px; border: 1px solid #d4cbc2; background: white; font-size: 0.95rem; width: 100%; appearance: none;">
+            <option value="" disabled selected>Interested Course *</option>
+            <option value="NID">NID</option>
+            <option value="NIFT">NIFT</option>
+            <option value="UCEED">UCEED</option>
+            <option value="CEED">CEED</option>
+            <option value="NATA">NATA</option>
+          </select>
+          <p style="font-size: 0.7rem; color: #6b6b7e; margin: -5px 0 0 0;">* All fields required</p>
+          <button type="submit" class="btn-primary" style="width: 100%; text-align: center; padding: 14px 20px;">Request Callback</button>
+        </form>
+        <!-- subtle endorsement -->
+        <p style="font-size: 0.8rem; color: #b28b7a; margin-top: 5px; text-align: center;">📞 limited slots • we reply within 24h</p>
       </div>
+      <!-- ========== END of replacement ========== -->
     </section>
 
-    <!-- mentor section (like DDM / DTS mentor credentials) -->
+    <!-- mentor section -->
     <div class="section-head">
       <h2>Learn from <span style="color:#c2491e;">IIT · NID · NIFT</span> mentors</h2>
       <p>faculty who’ve been in your shoes - and designed the exams</p>
@@ -524,7 +512,7 @@
       <div class="mentor-card"><i class="fas fa-user-tie"></i><h4>Anjali P.</h4><p>NIFT Delhi</p><span style="font-size:0.9rem;">fashion comm.</span></div>
     </div>
 
-    <!-- Programs / courses (mix of silica stage + DDM product focus) -->
+    <!-- Programs / courses -->
     <div class="section-head">
       <h2>Pick your <span style="color:#c2491e;">Program</span></h2>
       <p>crash courses, mock bundles, or 1‑year mentorship - whatever stage you’re in</p>
@@ -568,7 +556,7 @@
       </div>
     </div>
 
-    <!-- Wall of fame (like designthinkerschool) -->
+    <!-- Wall of fame -->
     <div class="section-head">
       <h2>🏆 Wall of fame</h2>
       <p>our Community made it to IITs, NID, NIFT - you're next</p>
@@ -582,7 +570,7 @@
       <div class="Wall-item"><i class="fas fa-user-circle"></i><div class="name">Bhakti D.</div><div class="rank">NID AIR 3</div><span>animation</span></div>
     </div>
 
-    <!-- testimonials (AI style – long & emotional) -->
+    <!-- testimonials -->
     <div class="section-head">
       <h2>💬 from the Community</h2>
     </div>
@@ -613,7 +601,7 @@
       </div>
     </div>
 
-    <!-- CTA banner (like "let's design your success") -->
+    <!-- CTA banner -->
     <div class="cta-banner">
       <h2>Still unsure? take the 2‑min career map →</h2>
       <a href="#" class="btn-primary"><i class="fas fa-compass"></i> find your exam</a>
